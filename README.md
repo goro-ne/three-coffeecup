@@ -11,7 +11,7 @@ $ npm --version
 ### 方針
 
 - ES2015、Three.jsを使い、WebGLで3Dモデルをアニメーションさせる。
-- 3DモデルはblenderとglTF-Blender-Exporter 2.0 アドオンを使い、glTFファイル変換して読み込む。
+- 3DモデルはblenderとglTF-Blender-Exporter 2.0 アドオンを使い、glTFフォーマットに変換して読み込む。
 - ES2015で動作しないブラウザを考慮して、babelとwebpack3でES5にコンパイルする。
 
 
@@ -90,7 +90,7 @@ $ cp ~/Documents/work/kenki/PC200_LiteR1_Render_R4.glb models/gltf/kenki/
 
 ### webpack.config.jsの編集
 
-*webpack.config.js* (既にある場合は作成不要)
+*webpack.config.js (既にある場合は作成不要)*
 ```js
 const webpack = require('webpack');
 const path = require('path');
@@ -136,9 +136,10 @@ module.exports = {
   }
 }
 ```
+
 ### app.js
 
-*app.js* (既にある場合は作成不要)
+*app.js (既にある場合は作成不要)*
 ```js
 import 'three/TrackballControls';
 import 'three/GLTFLoader';
@@ -342,7 +343,7 @@ npmコマンドを追加
 
 ### index.html
 
-*index.html* (既にある場合は作成不要)
+*index.html (既にある場合は作成不要)*
 ```html
 <!DOCTYPE html>
 <html lang="ja">
@@ -379,7 +380,7 @@ $ npm run build
 ### テストサーバー起動
 
 ```
-npm run test
+$ npm run test
 ```
 
 
@@ -390,7 +391,7 @@ npm run test
 .DS_Store
 npm-debug.log
 node_modules
-assets
-models/gltf/kenki
-tmp
+assets/*
+models/gltf/kenki/*
+!.gitkeep
 ```
