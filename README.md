@@ -77,15 +77,15 @@ $ npm install --save three
 $ (cd assets;curl -L "http://rawgit.com/mrdoob/stats.js/master/build/stats.min.js" -O)
 ```
 
-### blenderでエクスポートした建機3Dモデルをコピーする
+### blenderでエクスポートしたコーヒーカップの3Dモデルをコピーする
 
 [blenderをインストールして、glTFファイルをエクスポートするまで](doc/Install_blender.md)
 
-File: PC200_LiteR1_Render_R4.glb
+File: CoffeeCup.glb
 
 ```
-$ mkdir -p models/gltf/kenki
-$ cp ~/Documents/work/kenki/PC200_LiteR1_Render_R4.glb models/gltf/kenki/
+$ mkdir -p models/gltf/turntable
+$ cp ~/Documents/work/turntable/CoffeeCup.glb models/gltf/turntable/
 ```
 
 ### webpack.config.jsの編集
@@ -146,7 +146,7 @@ import 'three/GLTFLoader';
 
 let container;
 let camera, controls, scene, renderer;
-let kenki;
+let coffeecup;
 
 init();
 animate();
@@ -201,23 +201,23 @@ function init(resolve) {
     );
     scene.add( spotLightShadowHelper);
 
-    // 建機を作成
-    const url = 'models/gltf/kenki/PC200_LiteR1_Render_R4.glb';
+    // コーヒーカップを作成
+    const url = 'models/gltf/turntable/CoffeeCup.glb';
     const loader = new THREE.GLTFLoader();
     // Load a glTF resource
     loader.load( url,
         ( gltf ) => {
-            kenki = gltf.scene;
-            kenki.traverse (
-                ( obj ) => {
-                    // マテリアルのみ、影を投げる
-                    if ( obj.material ) {
-                        obj.castShadow = true;
-                        obj.receiveShadow = true;
+            coffeecup = gltf.scene;
+            coffeecup.traverse (
+                ( object ) => {
+                    // メッシュのみ、影を投げる
+                    if ( object instanceof THREE.Mesh ) {
+                        object.castShadow = true;
+                        object.receiveShadow = true;
                     }
                 }
             );
-            scene.add( kenki );
+            scene.add( coffeecup );
         },
 		( xhr ) => {
 			console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
@@ -268,9 +268,9 @@ function onWindowResize( event ) {
 
 function animate() {
  
-    // 建機を回転させる
-    if (kenki != undefined) {
-        kenki.rotation.y = Date.now() * 0.0005;	
+    // コーヒーカップを回転させる
+    if (coffeecup != undefined) {
+        coffeecup.rotation.y = Date.now() * 0.0005;	
     }
     if (renderer != undefined) {
         render();
@@ -392,6 +392,6 @@ $ npm run test
 npm-debug.log
 node_modules
 assets/*
-models/gltf/kenki/*
+models/gltf/turntable/*
 !.gitkeep
 ```

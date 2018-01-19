@@ -3,7 +3,7 @@ import 'three/GLTFLoader';
 
 let container;
 let camera, controls, scene, renderer;
-let kenki;
+let coffeecup;
 
 init();
 animate();
@@ -58,14 +58,14 @@ function init(resolve) {
     );
     scene.add( spotLightShadowHelper);
 
-    // 建機を作成
-    const url = 'models/gltf/kenki/PC200_LiteR1_Render_R4.glb';
+    // コーヒーカップを作成
+    const url = 'models/gltf/turntable/CoffeeCup.glb';
     const loader = new THREE.GLTFLoader();
     // Load a glTF resource
     loader.load( url,
         ( gltf ) => {
-            kenki = gltf.scene;
-            kenki.traverse (
+            coffeecup = gltf.scene;
+            coffeecup.traverse (
                 ( object ) => {
                     // メッシュのみ、影を投げる
                     if ( object instanceof THREE.Mesh ) {
@@ -74,7 +74,7 @@ function init(resolve) {
                     }
                 }
             );
-            scene.add( kenki );
+            scene.add( coffeecup );
         },
 		( xhr ) => {
 			console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
@@ -125,9 +125,9 @@ function onWindowResize( event ) {
 
 function animate() {
  
-    // 建機を回転させる
-    if (kenki != undefined) {
-        kenki.rotation.y = Date.now() * 0.0005;	
+    // コーヒーカップを回転させる
+    if (coffeecup != undefined) {
+        coffeecup.rotation.y = Date.now() * 0.0005;	
     }
     if (renderer != undefined) {
         render();
