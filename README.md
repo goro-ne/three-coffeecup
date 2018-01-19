@@ -67,7 +67,7 @@ $ npm install babel-loader babel-core babel-preset-es2015 --save-dev
 ### three.jsのインストール
 
 ```
-$ npm install --save three
+$ npm install --save three
 + three@0.89.0
 ```
 
@@ -90,7 +90,7 @@ $ cp ~/Documents/work/kenki/PC200_LiteR1_Render_R4.glb models/gltf/kenki/
 
 ### webpack.config.jsの編集
 
-*webpack.config.js (既にある場合は作成不要)*
+*webpack.config.js (既にある場合は作成不要)*
 ```js
 const webpack = require('webpack');
 const path = require('path');
