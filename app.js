@@ -66,11 +66,11 @@ function init(resolve) {
         ( gltf ) => {
             kenki = gltf.scene;
             kenki.traverse (
-                ( obj ) => {
-                    // マテリアルのみ、影を投げる
-                    if ( obj.material ) {
-                        obj.castShadow = true;
-                        obj.receiveShadow = true;
+                ( object ) => {
+                    // メッシュのみ、影を投げる
+                    if ( object instanceof THREE.Mesh ) {
+                        object.castShadow = true;
+                        object.receiveShadow = true;
                     }
                 }
             );
