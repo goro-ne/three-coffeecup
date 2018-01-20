@@ -71,12 +71,6 @@ $ npm install --save three
 + three@0.89.0
 ```
 
-### stat.jsのダウンロード
-
-```
-$ (cd assets;curl -L "http://rawgit.com/mrdoob/stats.js/master/build/stats.min.js" -O)
-```
-
 ### blenderでエクスポートしたコーヒーカップの3Dモデルをコピーする
 
 [blenderをインストールして、glTFファイルをエクスポートするまで](doc/Install_blender.md)
