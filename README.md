@@ -146,7 +146,7 @@ let coffeecup;
 init();
 animate();
 
-function init(resolve) {
+function init( resolve ) {
 
   container = document.createElement( 'div' );
   document.body.appendChild( container );
@@ -155,11 +155,11 @@ function init(resolve) {
   scene = new THREE.Scene();
 
   // レンダラー
-  renderer = new THREE.WebGLRenderer({antialias: true});
+  renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.shadowMap.enabled = true; // 影を有効にする
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.setClearColor(0xffffff);
+  renderer.setClearColor( 0xffffff );
   container.appendChild( renderer.domElement );
 
   // 平行光
@@ -189,14 +189,14 @@ function init(resolve) {
     1,           //光の減衰度合い
   );
   spotLight.castShadow = true; // 影を投げる
-  spotLight.position.set( 500, 1000, 700);
+  spotLight.position.set( 500, 1000, 700 );
   scene.add( spotLight );  
   const spotLightShadowHelper = new THREE.CameraHelper(
     spotLight.shadow.camera
   );
   scene.add( spotLightShadowHelper);
 
-  // コーヒーカップを作成
+  // コーヒーカップを作成
   const url = 'models/gltf/turntable/CoffeeCup.glb';
   const loader = new THREE.GLTFLoader();
   // Load a glTF resource
@@ -215,7 +215,7 @@ function init(resolve) {
       scene.add( coffeecup );
     },
     ( xhr ) => {
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        console.log(( xhr.loaded / xhr.total * 100 ) + '% loaded');
     },
     ( error ) => {
         console.log( 'An error happened' );
