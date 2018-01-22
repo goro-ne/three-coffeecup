@@ -1,7 +1,7 @@
 {
   "name": "three-gltf-kenki",
   "version": "1.0.0",
-  "description": "",
+  "description": "### npmのバージョン確認",
   "main": "index.js",
   "directories": {
     "doc": "doc"

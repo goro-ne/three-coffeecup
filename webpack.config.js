@@ -10,9 +10,8 @@ module.exports = {
     extensions: [".js", ".jsx"],
     // 使用したいコントロールやレンダラを定義しておきます。(下記は一例です。使用しないものは除いておいてよいです)
     alias: {
-         // GLTFローダー
-        'three/GLTFLoader': path.join(__dirname, 'node_modules/three/examples/js/loaders/GLTFLoader.js')
-        ,
+        // glTFローダー
+        'three/GLTFLoader': path.join(__dirname, 'node_modules/three/examples/js/loaders/GLTFLoader.js'),
         // トラックボール
         'three/TrackballControls': path.join(__dirname, 'node_modules/three/examples/js/controls/TrackballControls.js'),
         // 物体ドラッグ
